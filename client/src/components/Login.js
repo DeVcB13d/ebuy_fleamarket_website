@@ -41,42 +41,7 @@ const Login = () => {
         const getuserArr = localStorage.getItem("useryoutube");
         console.log(getuserArr);
 
-        const { email, password } = inpval;
-        if (email === "") {
-            toast.error('email field is requred', {
-                position: "top-center",
-            });
-        } else if (!email.includes("@")) {
-            toast.error('plz enter valid email addres', {
-                position: "top-center",
-            });
-        } else if (password === "") {
-            toast.error('password field is requred', {
-                position: "top-center",
-            });
-        } else if (password.length < 5) {
-            toast.error('password length greater five', {
-                position: "top-center",
-            });
-        } else {
-
-            if (getuserArr && getuserArr.length) {
-                const userdata = JSON.parse(getuserArr);
-                const userlogin = userdata.filter((el, k) => {
-                    return el.email === email && el.password === password
-                });
-
-                if (userlogin.length === 0) {
-                    alert("invalid details")
-                } else {
-                    console.log("user login succesfulyy");
-
-                    localStorage.setItem("user_login", JSON.stringify(userlogin))
-
-                    history("/details")
-                }
-            }
-        }
+        
 
     }
 

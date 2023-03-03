@@ -9,12 +9,15 @@ import {Routes,Route} from "react-router-dom"
 
 function App() {
   return (
+  <>
+    <Header />
     <Routes>
       <Route path='/' element={<Home />} />
       <Route path='/login' element={<Login />} />
       <Route path='/details' element={<Details />} />
       <Route path='*' element={<Errror />} />
     </Routes>
+  </>
   );
 }
 

@@ -14,7 +14,7 @@ const Home = () => {
   const{inpval,setInpval} = useState({
     name:"",
     email:"",
-    date:"",
+    password:"",
     password:""
   })
 
@@ -43,39 +43,7 @@ const Home = () => {
     const addData = (e) => {
         e.preventDefault();
 
-        const { name, email, date, password } = inpval;
-
-        if (name === "") {
-            toast.error(' name field is requred!',{
-                position: "top-center",
-            });
-        } else if (email === "") {
-             toast.error('email field is requred',{
-                position: "top-center",
-            });
-        } else if (!email.includes("@")) {
-             toast.error('plz enter valid email addres',{
-                position: "top-center",
-            });
-        } else if (date === "") {
-             toast.error('date field is requred',{
-                position: "top-center",
-            });
-        } else if (password === "") {
-             toast.error('password field is requred',{
-                position: "top-center",
-            });
-        } else if (password.length < 5) {
-             toast.error('password length greater five',{
-                position: "top-center",
-            });
-        } else {
-            console.log("data added succesfully");
-            history("/login")
-            localStorage.setItem("useryoutube",JSON.stringify([...data,inpval]));
-
-        }
-
+        
     }
 
     return (
@@ -96,18 +64,21 @@ const Home = () => {
 
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
 
-                                <Form.Control onChange={getdata} name='date' type="date" />
+                                
+                            <Form.Control type="password" name='password' onChange={getdata} placeholder="  Password" />
                             </Form.Group>
 
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
 
-                                <Form.Control type="password" name='password' onChange={getdata} placeholder="Password" />
+                                <Form.Control type="password" name='password' onChange={getdata} placeholder="Confirm Password" />
                             </Form.Group>
+                            
+
                             <Button variant="primary" className='col-lg-6' onClick={addData} style={{ background: "rgb(204, 0, 204)" }} type="submit">
                                 Submit
                             </Button>
                         </Form>
-                        <p className='mt-3'>Already Have an Account <span><NavLink to="/login">SignIn</NavLink></span> </p>
+                        <p className='mt-3'>Already Have an Account <span><NavLink to="/login"> SignIn</NavLink></span> </p>
                     </div>
                     <SIgn_img />
                 </section>

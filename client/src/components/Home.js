@@ -42,12 +42,9 @@ const Home = () => {
 
     const addData = (e) => {
         e.preventDefault();
-
-        
     }
 
     return (
-        <>
             <div className="container mt-3">
                 <section className='d-flex justify-content-between'>
                     <div className="left_data mt-3 p-3" style={{ width: "100%" }}>
@@ -84,7 +81,6 @@ const Home = () => {
                 </section>
                 <ToastContainer />
             </div>
-        </>
     )
 }
 

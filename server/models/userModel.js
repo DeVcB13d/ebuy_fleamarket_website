@@ -2,7 +2,7 @@ const mongoose = require('mongoose')
 
 const Schema = mongoose.Schema
 
-const signUpSchema = new Schema({
+const userModelSchema = new Schema({
     id: {
         type: String,
         required: true
@@ -21,4 +21,4 @@ const signUpSchema = new Schema({
     }
 },{timestamps: true})
 
-module.exports = mongoose.model('signup',signUpSchema)
+module.exports = mongoose.model('userModel',userModelSchema)

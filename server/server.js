@@ -1,6 +1,7 @@
 // TO require a package
 const express = require("express");
 const userRoutes = require('./routes/signUp')
+const loginRoutes = require('./routes/login')
 const mongoose = require('mongoose')
 require('dotenv').config()
 // creates express app
@@ -15,7 +16,7 @@ app.use((req,res,next) => {
 
 // route
 app.use('/api/signUp',userRoutes)
-
+app.use('/api/login',loginRoutes)
 // connect to db
 
 mongoose.connect(process.env.MONGO_URL)

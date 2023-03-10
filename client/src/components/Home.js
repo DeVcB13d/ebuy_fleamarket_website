@@ -51,25 +51,17 @@ const Home = () => {
                         <h3 className='text-center col-lg-6'>Sign Up</h3>
                         <Form >
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-
                                 <Form.Control type="text" name='name' onChange={getdata} placeholder="Enter Your Name" />
                             </Form.Group>
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-
                                 <Form.Control type="email" name='email' onChange={getdata} placeholder="Enter email" />
                             </Form.Group>
-
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicEmail">
-
-                                
                             <Form.Control type="password" name='password' onChange={getdata} placeholder="  Password" />
                             </Form.Group>
-
                             <Form.Group className="mb-3 col-lg-6" controlId="formBasicPassword">
-
                                 <Form.Control type="password" name='password' onChange={getdata} placeholder="Confirm Password" />
                             </Form.Group>
-                            
 
                             <Button variant="primary" className='col-lg-6' onClick={addData} style={{ background: "rgb(204, 0, 204)" }} type="submit">
                                 Submit

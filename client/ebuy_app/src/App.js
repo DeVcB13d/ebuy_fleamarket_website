@@ -1,8 +1,7 @@
 import React ,{ useState } from "react";
 
-import reactLogo from "./4835010 1.png";
+import reactLogo from "client\ebuy_app\src\image1.jpg";
 
-import logo from './logo.svg';
 import './App.css';
 import {Login} from "./Login";
 import {Register} from "./Register";

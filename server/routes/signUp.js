@@ -1,12 +1,17 @@
+/* The below code is creating a router for the user. */
+
 const express = require('express')
 
 const router = express.Router()
 const {
-    loginUser
-} = require('../controlers/userControl')
+    createUser,
+    getUser,
+    getUsers
+} = require('../controllers/userSignInControl')
 
 
-router.post('/',loginUser)
-
+router.post('/',createUser)
+router.get('/',getUsers)
+router.get('/:id',getUser)
 
 module.exports = router

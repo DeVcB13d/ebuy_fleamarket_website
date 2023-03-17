@@ -1,31 +1,9 @@
+/* The above code is creating a router for the login route. */
 const express = require('express')
 
 const router = express.Router()
-const signUp = require('../models/userModel')
-const {
-    createUser,
-    getUsers,
-    getUser
-} = require('../controlers/userControl')
+const {loginUser} = require('../controllers/userLoginContol')
 
-
-// post a new user
-
-router.post('/',createUser)
-
-// Request handlers   
-router.get('/', (req,res) => {
-    res.json({mssg: 'getall wkts'})
-})
-
-router.get('/:id',getUser)
-
-router.delete('/:id',(req,res) =>{
-    res.json({mssg:'delete a new workout'})
-})
-
-router.patch('/:id',(req,res) =>{
-    res.json({mssg:'Update a workout'})
-})
+router.post('/',loginUser)
 
 module.exports = router

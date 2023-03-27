@@ -23,25 +23,50 @@ const getUser = async(req,res) => {
 
 // update a user data
 
-
-
 // create a new user
 const createUser = async (req, res) => {
     console.log("Request Data")
     console.log(req.body)
-    const {title, load, reps} = req.body
-
+    const {id, username, email, password} = req.body
     // add doc to db
     try{
-        const user = await User.create({title, load, reps})
+        const user = await User.create({id, username, email, password})
         res.status(200).json(user)
     } catch(error){
         res.status(400).json({error: error.message})
     }
 }
 
+// to login a user
+const loginUser = async(req,res) => {
+    console.log("Request Data")
+    console.log(req.body)
+
+    const {req_email, req_password} = req.body
+
+    try{
+        const user = await User.findOne({email : req_email})
+        if (user) {
+            // check for password match
+            const result = req_password == user.password
+            if (result){
+                res.render("login successfull")
+            }
+            else{
+                res.status(400).json({error: "password does not match"})
+            }
+        }
+        else{
+            res.status(400).json({error:"user does not exist"})
+        }
+    }
+    catch(error){
+        res.status(400).json({error})
+    }
+}
 module.exports = {
     createUser,
     getUsers,
-    getUser
+    getUser,
+    loginUser
 }

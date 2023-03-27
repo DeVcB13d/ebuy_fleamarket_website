@@ -1,24 +1,37 @@
+import React ,{ useState } from "react";
+
+
 import './App.css';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import Header from './components/Header';
-import Home from './components/Home';
-import Login from './components/Login';
-import Details from './components/Details';
-import Errror from './components/Errror';
-import {Routes,Route} from "react-router-dom"
+import {Login} from "./Login";
+import {Register} from "./Register";
+import reactLogo from "./6505894.jpg";
+
+
+
+
 
 function App() {
+  const[currentForm,setCurrentForm]=useState('login');
+
+  const toggleForm = (FormName) => {
+    setCurrentForm(FormName);
+  }
   return (
-    <div className='App'>
-    <Header/>
-    <Routes>
-      <Route path='/' element={<Home />} />
-      <Route path='/login' element={<Login />} />
-      <Route path='/details' element={<Details />} />
-      <Route path='*' element={<Errror />} />
-    </Routes>
+    <div className="App">
+       {
+        
+        
+        currentForm === "login" ? <Login onFormSwitch ={toggleForm}/> : <Register onFormSwitch ={toggleForm}/>
+      
+      }
+       <div className="right_data mt-15" style={{ width: "100%" }}>
+       <div className="reactLogo mt-10">
+       <img src={reactLogo} alt="react logo" class="login-img" width="600" height="650"/> 
+
+
+    </div></div>
     </div>
   );
 }
 
-export default App;
+export default App;

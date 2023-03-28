@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "./logo .png";
+import reactimage from "../76884837.jpg"
 
 function Header() {
   return <img src={logo} alt="Logo" />;
@@ -47,7 +48,11 @@ const Login = (props) => {
       >
         Don't have an account ? Register here
       </button>
+      <div className="login">
+          <img src={reactimage} className="img-fluid" alt="Welcome to our eCommerce store!" style={{marginTop: '2cm'}}/>
+        </div>
     </div>
+    
   );
 };
 

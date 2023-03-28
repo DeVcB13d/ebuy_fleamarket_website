@@ -14,14 +14,19 @@
 
 .auth-form-container, .Login-form,.signup-form{
   display: flex;
-  flex-direction: column;
+flex-direction: column;
   align-items: left;
   padding: 1rem;
- 
+  
+ width : 250px;
 }
+
+
 
 .login-img{
   mix-blend-mode: color-burn;
+  display: flex;
+  align-items: right;
 }
 
 label1{
@@ -49,7 +54,7 @@ input{
 button{
   border: black;
   background-color: #4a0a82fb;
-  
+  width: 100px;
   padding: 4px;
   border-radius: 1px;
 
@@ -58,6 +63,7 @@ button{
   background: none;
   color: rgb(5, 6, 5);
   text-decoration: underline;
+  width: 100px;
 }
 
 .body{

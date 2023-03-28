@@ -5,11 +5,12 @@
   align-items: center;
   justify-content: center;
   margin-left: none;
-  background-image:  linear-gradient(79deg,#865bd1,#C66FBC 48%,#F7944D)
+background-color: aqua;
 
 }
-
-
+.Home {
+  background-color: #c25a5a; /*example background color*/
+}
 
 .auth-form-container, .Login-form,.register-form{
   display: flex;
@@ -47,10 +48,10 @@ input{
 
 button{
   border: black;
-  background-color: #e08a34fb;
+  background-color: #4a0a82fb;
   
-  padding: 10px;
-  border-radius: 5px;
+  padding: 4px;
+  border-radius: 1px;
 
 }
 .link-btn{

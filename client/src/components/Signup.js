@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import signinimage from "../76884837.jpg"
+import signupimage from "C:/Users/namit/Documents/GitHub/ebuy_fleamarket_website/client/src/2480553.jpg"
 
 const Signup = (props) => {
   const [Name , setName] = useState('');
@@ -38,7 +38,7 @@ const Signup = (props) => {
         </div>
       </form> 
       <div className="image-container">
-        <img src={signinimage} alt="Welcome to our eCommerce store!" />
+        <img src={signupimage} alt="Welcome to our eCommerce store!" />
       </div>
     </div>
   );

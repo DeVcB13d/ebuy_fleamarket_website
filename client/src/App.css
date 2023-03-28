@@ -15,7 +15,7 @@
 .auth-form-container, .Login-form,.signup-form{
   display: flex;
 flex-direction: column;
-  align-items: left;
+  align-items:first baseline;
   padding: 1rem;
   
  width : 250px;
@@ -23,13 +23,9 @@ flex-direction: column;
 
 
 
-.login-img{
-  mix-blend-mode: color-burn;
-  display: flex;
-  align-items: right;
-}
 
 label1{
+ 
   text-align: center;
   padding: 1rem 0;
   font-size: xx-large;
@@ -38,22 +34,27 @@ label1{
   
 }
 label{
+margin-left: 0.5cm;
+  color: #03186c;
   text-align: left;
-
+  font-size: x-large;
   padding: 0.2rem 0;
+  border: #bdb8c5;
 }
 input{
   margin: 0.5rem 0;
   padding:  1rem;
   border: none;
   border-radius: 5px;
+  align-items: center;
+
   
 
 }
 
 button{
   border: black;
-  background-color: #4a0a82fb;
+  background-color: #3e6ccefb;
   width: 100px;
   padding: 4px;
   border-radius: 1px;
@@ -61,11 +62,55 @@ button{
 }
 .link-btn{
   background: none;
-  color: rgb(5, 6, 5);
+  color: rgb(231, 62, 70);
   text-decoration: underline;
-  width: 100px;
+  width: 250px;
+text-align: left;
 }
 
 .body{
   display: flex;
+}
+
+
+
+.auth-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 1em;
+  align-content: end;
+}
+
+.Login-form {
+  flex-basis: 50%;
+  margin-right: 1em;
+}
+
+.image-container {
+  flex-basis: 100%;
+  width: 100%;
+  margin-left: 4cm;
+
+}
+
+.image-container img {
+  max-width: 250%;
+  max-height: 250%;
+}
+button[type="submit"] {
+  margin-top: 1.5cm;
+}
+
+.link-btn {
+  margin-top: 1.5cm;
 }

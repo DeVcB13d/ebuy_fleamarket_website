@@ -8,6 +8,7 @@ import About from "./components/About";
 import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Shop from "./components/shop"
 
 
 
@@ -37,6 +38,12 @@ const App = () => {
     <Route exact path = "/Signup">
       <Signup/>
     </Route>
+
+    <Route path = "/shop">
+      <Shop/>
+    </Route>
+
+
     
     </>
 

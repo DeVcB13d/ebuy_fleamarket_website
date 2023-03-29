@@ -1,7 +1,7 @@
 import React from 'react';
-import contactimage from "../contact-image.jpg";
+import contactimage from "../5112782.jpg";
 
-const ContactPage = () => {
+const Contact = () => {
   return (
     <div className="container">
       <div className="row">
@@ -24,11 +24,19 @@ const ContactPage = () => {
           </form>
         </div>
         <div className="col-lg-4">
-          <img src={contactimage} className="img-fluid rounded" alt="Contact us" />
+          <div className="card">
+            <img src={contactimage} className="card-img-top" alt="Contact us" />
+            <div className="card-body">
+              <h5 className="card-title">Contact Information</h5>
+              <p className="card-text">Address: Ebuy Online Enterprise pvt Lmt.</p>
+              <p className="card-text">Phone: (+91)7994625612</p>
+              <p className="card-text">Email: info@Ebuyfleamarket.com</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   );
 };
 
-export default ContactPage;
+export default Contact;

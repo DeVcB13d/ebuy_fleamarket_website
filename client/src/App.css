@@ -38,14 +38,14 @@ margin-left: 0.5cm;
   color: #03186c;
   text-align: left;
   font-size: x-large;
-  padding: 0.2rem 0;
+  padding: 0.1rem 0;
  
 }
 input{
-  margin: 0.5rem 0;
-  padding:  1rem;
+  margin: 0.2rem 0;
+  padding:  0.2rem;
   border: none;
-  border-radius: 5px;
+  border-radius: 2px;
   align-items: center;
 
   
@@ -78,6 +78,9 @@ text-align: left;
   display: flex;
   flex-direction: column;
   align-items: center;
+  
+ 
+  
 }
 
 
@@ -208,7 +211,20 @@ button[type="submit"] {
 }
 
 .btn-primary {
-  background-color: #007bff;
+  background-color: #c8ff00;
   border: none;
   border-radius: 0;
+}
+form {
+  border: 1px solid #ccc;
+  padding: 50px;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0,0,0,.3);
+}
+
+img {
+  margin-top: 20px;
+  max-width: 200%;
+  
+
 }

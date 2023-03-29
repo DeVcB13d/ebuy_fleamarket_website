@@ -11,7 +11,7 @@ This module controls all the signIn control operations
  * @param res - the response object
  */
 async function getUsers(req, res) {
-    const users = await userDataModel.find({}.sortStable({ createdAt: -1 }))
+    const users = await userDataModel.find({}).sort({ createdAt: -1 })
     res.status(200).json(users)
 }
 

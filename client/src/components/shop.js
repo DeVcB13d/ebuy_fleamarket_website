@@ -1,29 +1,29 @@
 import React from "react";
-
+import watch from "../watchimages.jpg"
 
 const FleaMarket = () => {
   const products = [
     {
       id: 1,
-      name: "Vintage Watch",
+      name: "item 1",
       price: 50,
-      image: "https://www.google.com/imgres?imgurl=https%3A%2F%2Frobbreport.com%2Fwp-content%2Fuploads%2F2017%2F05%2Fcarousel_1-_patek.jpg&tbnid=PfElJ52NEViVAM&vet=12ahUKEwih0ruJyYD-AhUb-XMBHct0AT8QMygdegUIARCoAg..i&imgrefurl=https%3A%2F%2Frobbreport.com%2Fstyle%2Fwatch-collector%2F3-gorgeous-vintage-watches-headed-christies-auction-block-271020%2F&docid=8yE5QOKv3M71AM&w=1400&h=795&q=vintage%20watches&ved=2ahUKEwih0ruJyYD-AhUb-XMBHct0AT8QMygdegUIARCoAg",
+      image: {watch},
     },
     {
       id: 2,
-      name: "Antique Lamp",
+      name: "item 2",
       price: 100,
       image: "https://via.placeholder.com/150",
     },
     {
       id: 3,
-      name: "Retro Radio",
+      name: "item3",
       price: 75,
       image: "https://via.placeholder.com/150",
     },
     {
       id: 4,
-      name: "Handmade Pottery",
+      name: "item4",
       price: 30,
       image: "https://via.placeholder.com/150",
     },

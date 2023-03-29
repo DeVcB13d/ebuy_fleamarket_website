@@ -4,7 +4,7 @@ import aboutimage from "../4706264.jpg"
 const About = () => {
   return (
     <div className="about-container">
-    <div className="about-text">
+    <div className="about-text" >
       <h1>About Us</h1>
       <p>Welcome to our flea market! We are a community of sellers and buyers who love finding unique treasures and bargains👨🏻.</p>
       <p>Our market has been around for over a few years, and we have a wide variety of vendors selling everything from vintage clothing to handmade crafts.</p>

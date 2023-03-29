@@ -20,12 +20,12 @@ const Contact = () => {
               <label htmlFor="messageInput">Message</label>
               <textarea className="form-control" id="messageInput" rows="5"></textarea>
             </div>
-            <button type="submit" className="btn btn-primary">Submit</button>
+            <button type="submit" className="btn-warning">Submit</button>
           </form>
         </div>
         <div className="col-lg-4">
           <div className="card">
-            <img src={contactimage} className="card-img-top" alt="Contact us" />
+            <img src={contactimage} className="card-img-top" alt="Contact us"  />
             <div className="card-body">
               <h5 className="card-title">Contact Information</h5>
               <p className="card-text">Address: Ebuy Online Enterprise pvt Lmt.</p>

@@ -7,6 +7,10 @@ function Header() {
 }
 
 const Login = (props) => {
+  const registerFormStyle = {
+    marginLeft: '2cm',
+    width:"500px",
+  };
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -16,7 +20,7 @@ const Login = (props) => {
   };
 
   return (
-    <div className="body">
+    <div className="body"style={registerFormStyle}>
       <div className="auth-form-container">
         <label htmlFor="Ebuy">Sign in here 🔐</label>
         <div className="form-container">

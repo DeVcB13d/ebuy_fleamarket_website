@@ -9,6 +9,7 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Shop from "./components/shop"
+import Shopnow from "./components/shop"
 
 
 
@@ -39,10 +40,15 @@ const App = () => {
       <Signup/>
     </Route>
 
-    <Route path = "/shop">
+    <Route exact path = "/shop">
       <Shop/>
     </Route>
 
+    <Route exact path = "/shop">
+      <Shopnow/>
+    </Route>
+
+    
 
     
     </>

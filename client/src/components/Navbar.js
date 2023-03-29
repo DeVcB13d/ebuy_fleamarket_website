@@ -30,6 +30,8 @@ const Navbar = () => {
       <li class="nav-item">
         <a class="nav-link" href="/shop">Shop</a>
       </li>
+
+      
     </ul>
    
   </div>

@@ -39,7 +39,7 @@ const Login = (props) => {
               id="password"
               name="password"
             />
-            <button type="submit">Sign In</button>
+            <button type="submit" >Sign In</button>
             <button className="link-btn" onClick={() => props.onFormSwitch("register")}>
           Don't have an account? Register here
         </button>

@@ -25,6 +25,7 @@ jobs:
         run: |
           cd server
           npm install
+          npm install nodemon
           npm run dev --if-present
           npm run test --if-present
 

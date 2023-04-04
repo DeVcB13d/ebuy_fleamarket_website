@@ -16,7 +16,7 @@ export const Login = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		const signUpData = { email, password }
-		const response = await fetch('/api/login', {
+		const response = await fetch('http:/localhost:8080/api/login', {
 			method: 'POST',
 			body: JSON.stringify(signUpData),
 			headers: {

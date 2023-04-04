@@ -23,7 +23,7 @@ const Login = (props) => {
 		e.preventDefault();
 		
 		const signUpData = { email, password }
-		const response = await fetch('/api/login', {
+		const response = await fetch('http://192.168.64.1/api/login', {
 			method: 'POST',
 			body: JSON.stringify(signUpData),
 			headers: {

@@ -1,6 +1,7 @@
 const express = require("express");
 const userRoutes = require('./routes/signUp')
 const loginRoutes = require('./routes/login')
+const productRoutes = require('./routes/product')
 const mongoose = require('mongoose')
 require('dotenv').config()
 
@@ -18,6 +19,7 @@ app.use((req,res,next) => {
 /* Telling the app to use the routes defined in the userRoutes and loginRoutes files. */
 app.use('/api/signUp',userRoutes)
 app.use('/api/login',loginRoutes)
+app.use('/api/product',productRoutes)
 
 /* Connecting to the database and then listening for requests. */
 mongoose.connect(process.env.MONGO_URL)

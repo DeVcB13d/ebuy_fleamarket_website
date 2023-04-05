@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 
 // defining the structure of the data of a product that would be stored in the database
 
-const userDataModelSchema = new Schema({
+const productDataModelSchema = new Schema({
     itemID: {
         type: String,
         required: true,
@@ -24,7 +24,7 @@ const userDataModelSchema = new Schema({
         required: true
     },
     price: {
-        type: Float32Array,
+        type: Number,
         required: true
     },
     sellingStatus:{
@@ -53,4 +53,4 @@ const userDataModelSchema = new Schema({
 
 },{timestamps: true})
 
-module.exports = mongoose.model('userDataModel',userDataModelSchema)
+module.exports = mongoose.model('productDataModel',productDataModelSchema)

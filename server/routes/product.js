@@ -4,14 +4,12 @@ const express = require('express')
 
 const router = express.Router()
 const {
-    createUser,
-    getUser,
-    getUsers
-} = require('../controllers/userSignInControl')
+    createProduct,
+    getProducts
+} = require('../controllers/productCreationControl')
 
 
 router.post('/',createProduct)
-router.get('/',getProduct)
-router.get('/all',getProducts)
+router.get('/',getProducts)
 
 module.exports = router

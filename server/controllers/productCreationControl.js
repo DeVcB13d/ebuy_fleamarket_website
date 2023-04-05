@@ -52,6 +52,8 @@ const createProduct = async (req, res) => {
 
 // Function to retrieve all the products
 const getProducts = async(req,res) => {
-    const products = await productDataModel.find({}.sortStable({relevanceScore: -1}))
+    const products = await productDataModel.find({}).sort({relevanceScore: -1})
     res.status(200).json(products)
 }
+
+module.exports = {createProduct,getProducts}

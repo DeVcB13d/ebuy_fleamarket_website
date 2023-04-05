@@ -39,12 +39,15 @@ const userDataModelSchema = new Schema({
         type: String
     },
     tags:{
-        type: 
+        type: String
     },
     category:{
         type: String
     },
     yearsUsed: {
+        type: Number
+    },
+    relevanceScore: {
         type: Number
     }
 

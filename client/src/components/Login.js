@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import signinimage from "../images/76884837.jpg";
-import logo_web from "../images/logo_web.png";
+import signinimage from "../76884837.jpg";
+
 import Shop from "./shop"
 import { useHistory } from "react-router-dom";
 import {Route} from "react-router-dom";
-function Header() {
-	return <img src={logo_web} alt="Logo" />;
-}
+
+
 
 
 const Login = (props) => {
@@ -23,7 +22,7 @@ const Login = (props) => {
 		e.preventDefault();
 		
 		const signUpData = { email, password }
-		const response = await fetch('http:/localhost:8080/api/login', {
+		const response = await fetch('/api/login', {
 			method: 'POST',
 			body: JSON.stringify(signUpData),
 			headers: {

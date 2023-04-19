@@ -1,4 +1,4 @@
-import signupimage from "../images/6333040.jpg";
+import signupimage from "../6333040.jpg";
 import React, { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 
@@ -22,7 +22,7 @@ const Signup = (props) => {
 	const handleSubmit = async (e) => {
 		// prevent refresh
 		e.preventDefault();
-		if (password == Cpassword) {
+		if (password === Cpassword) {
 			const userID = Math.floor(Math.random() * 90000) + 10000;
 			const userData = { userID, email, username, password, address, phone }
 			const response = await fetch('/api/signUp', {

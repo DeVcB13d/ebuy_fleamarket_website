@@ -3,58 +3,103 @@ import './Productupload.css';
 import signinimage from '../Wavy_Ppl-05_Single-09.jpg';
 
 function ProductUploadPage() {
-  const [title, setTitle] = useState('');
-  const [category, setCategory] = useState('');
-  const [price, setPrice] = useState('');
-  const [description, setDescription] = useState('');
-  const [photos, setPhotos] = useState([]);
-  const [condition, setCondition] = useState('');
-  const [availability, setAvailability] = useState('');
+  const [productName, setproductName] = useState('');
+  const [brandName, setbrandName] = useState('');
+  const [category, setcategory] = useState('');
+  const [price, setprice] = useState('');
+  const [specs, setspecs] = useState('');
+  const [contactNo, setcontactNo] = useState('');
+  const [tags, settags] = useState('');
+  const [photos, setphotos] = useState([]);
+  const [condition, setcondition] = useState('');
+  const [sellingStatus, setsellingStatus] = useState('');
+  const [yearsUsed, setyearsUsed] = useState('');
 
-  const handleTitleChange = (event) => {
-    setTitle(event.target.value);
+  const handleproductName = (event) => {
+    setproductName(event.target.value);
   };
 
-  const handleCategoryChange = (event) => {
-    setCategory(event.target.value);
+  const handlebrandName = (event) => {
+    setbrandName(event.target.value);
   };
 
-  const handlePriceChange = (event) => {
-    setPrice(event.target.value);
+  const handleyearsUsed = (event) => {
+    setyearsUsed(event.target.value);
   };
 
-  const handleDescriptionChange = (event) => {
-    setDescription(event.target.value);
+  const handlecategoryChange = (event) => {
+    setcategory(event.target.value);
   };
 
-  const handlePhotosChange = (event) => {
+  const handlepriceChange = (event) => {
+    setprice(event.target.value);
+  };
+
+  const handlespecsChange = (event) => {
+    setspecs(event.target.value);
+  };
+
+  const handletagsChange = (event) => {
+    settags(event.target.value);
+  };
+
+  const handlephotosChange = (event) => {
     const newPhotos = Array.from(event.target.files);
-    setPhotos(newPhotos);
+    setphotos(newPhotos);
   };
 
-  const handleConditionChange = (event) => {
-    setCondition(event.target.value);
+  const handleconditionChange = (event) => {
+    setcondition(event.target.value);
   };
 
-  const handleAvailabilityChange = (event) => {
-    setAvailability(event.target.value);
+  const handlesellingStatusChange = (event) => {
+    setsellingStatus(event.target.value);
   };
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    // code to upload the product data to the server goes here
+  const handlecontactNoChange = (event) => {
+    setcontactNo(event.target.value);
+  };
+
+  const handleSubmit = async(e) => {
+    // prevent refresh
+		e.preventDefault();
+		const itemID = Math.floor(Math.random() * 90000) + 10000;
+    const sellerID = "AB100"
+    const relevanceScore = 0
+		const productData = {itemID,sellerID,productName,brandName,price,sellingStatus,specs,contactNo,tags,category,yearsUsed,relevanceScore}
+		const response = await fetch('/api/product', {
+				method: 'POST',
+				body: JSON.stringify(productData),
+				headers: {
+					'Content-Type': 'application/json'
+				}
+			})
+			const json = await response.json()
+			if (!response.ok) {
+				alert('The upload was not successful')
+			}
+			if (response.ok) {
+				alert('The product addition was successful')
+				console.log('user data added')
+			}
+			console.log(itemID);
   };
 
   return (
     <form onSubmit={handleSubmit}>
       <label>
-        Title:
-        <input type="text" value={title} onChange={handleTitleChange} />
+        Product Name:
+        <input type="text" value={productName} onChange={handleproductName} />
+      </label>
+      <br />
+      <label>
+        Brand Name:
+        <input type="text" value={brandName} onChange={handlebrandName} />
       </label>
       <br />
       <label>
         Category:
-        <select value={category} onChange={handleCategoryChange}>
+        <select value={category} onChange={handlecategoryChange}>
           <option value="LAPTOPS">Laptops</option>
           <option value="BOOKS">Books</option>
           <option value="FURNITURE">Furniture</option>
@@ -65,22 +110,28 @@ function ProductUploadPage() {
       <br />
       <label>
         Price:
-        <input type="text" value={price} onChange={handlePriceChange} />
+        <input type="number" value={price} onChange={handlepriceChange} />
       </label>
       <br />
       <label>
         Description:
-        <textarea value={description} onChange={handleDescriptionChange} />
+        <textarea value={specs} onChange={handlespecsChange} />
+      </label>
+      <br />
+
+      <label>
+        Add relevent tags related to product : 
+        <textarea value={tags} onChange={handletagsChange} />
       </label>
       <br />
       <label>
         Photos:
-        <input type="file" multiple onChange={handlePhotosChange} />
+        <input type="file" multiple onChange={handlephotosChange} />
       </label>
       <br />
       <label>
         Condition:
-        <select value={condition} onChange={handleConditionChange}>
+        <select value={condition} onChange={handleconditionChange}>
           <option value="new">New</option>
           <option value="like-new">Like New</option>
           <option value="used">Used</option>
@@ -88,8 +139,18 @@ function ProductUploadPage() {
       </label>
       <br />
       <label>
+        Years Used : 
+        <input type="number" value={yearsUsed} onChange={handleyearsUsed} />
+      </label>
+      <br />
+      <label>
+        Contact Number : 
+        <input type="text" value={contactNo} onChange={handlecontactNoChange} />
+      </label>
+      <br />
+      <label>
         Availability:
-        <select value={availability} onChange={handleAvailabilityChange}>
+        <select value={sellingStatus} onChange={handlesellingStatusChange}>
           <option value="in-stock">In Stock</option>
           <option value="out-of-stock">Out of Stock</option>
         </select>

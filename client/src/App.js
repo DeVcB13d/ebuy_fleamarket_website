@@ -10,6 +10,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Shop from "./components/shop"
 import Shopnow from "./components/shop"
+import ProductUploadPage from "./components/Productupload";
 
 
 
@@ -44,9 +45,11 @@ const App = () => {
       <Shop/>
     </Route>
 
-    <Route exact path = "/shop">
-      <Shopnow/>
+    <Route exact path = "/Productupload">
+      <ProductUploadPage/>
     </Route>
+
+    
 
     
 

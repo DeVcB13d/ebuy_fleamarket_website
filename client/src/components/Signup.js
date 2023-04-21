@@ -25,7 +25,7 @@ const Signup = (props) => {
 		if (password === Cpassword) {
 			const userID = Math.floor(Math.random() * 90000) + 10000;
 			const userData = { userID, email, username, password, address, phone }
-			const response = await fetch('/api/signUp', {
+			const response = await fetch('https://ebuy-dev.onrender.com/api/signUp', {
 				method: 'POST',
 				body: JSON.stringify(userData),
 				headers: {

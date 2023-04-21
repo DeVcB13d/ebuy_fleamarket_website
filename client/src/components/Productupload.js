@@ -75,7 +75,7 @@ function ProductUploadPage() {
 		const formData = new FormData();
     formData.append('itemID',itemID)
     formData.append('image',image)
-    const response = await fetch('/api/product', {
+    const response = await fetch('https://ebuy-dev.onrender.com/api/product', {
 				method: 'POST',
 				body: JSON.stringify(productData),
 				headers: {

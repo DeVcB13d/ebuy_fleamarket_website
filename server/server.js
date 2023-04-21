@@ -8,7 +8,11 @@ require('dotenv').config()
 /* Creating an instance of the express application. */
 const app = express()
 
+const cors = require('cors');
+
+
 /* Logging the path and method of the request. */
+app.use(cors({origin:'https://ebuy-dev.onrender.com'}));
 app.use(express.json())
 app.use((req,res,next) => {
     console.log(req.path,req.method)

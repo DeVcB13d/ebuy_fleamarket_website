@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import './Productupload.css';
 import signinimage from '../Wavy_Ppl-05_Single-09.jpg';
+import axios from 'axios';
+
+
 
 function ProductUploadPage() {
   const [productName, setproductName] = useState('');
@@ -14,6 +17,8 @@ function ProductUploadPage() {
   const [condition, setcondition] = useState('');
   const [sellingStatus, setsellingStatus] = useState('');
   const [yearsUsed, setyearsUsed] = useState('');
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
 
   const handleproductName = (event) => {
     setproductName(event.target.value);
@@ -67,7 +72,10 @@ function ProductUploadPage() {
     const sellerID = "AB100"
     const relevanceScore = 0
 		const productData = {itemID,sellerID,productName,brandName,price,sellingStatus,specs,contactNo,tags,category,yearsUsed,relevanceScore}
-		const response = await fetch('/api/product', {
+		const formData = new FormData();
+    formData.append('itemID',itemID)
+    formData.append('image',image)
+    const response = await fetch('/api/product', {
 				method: 'POST',
 				body: JSON.stringify(productData),
 				headers: {
@@ -83,6 +91,17 @@ function ProductUploadPage() {
 				console.log('user data added')
 			}
 			console.log(itemID);
+      try {
+        await axios.post('/api/upload', formData, {
+          headers: {
+            'Content-Type': 'multipart/form-data'
+          }
+        });
+        setImageUrl(URL.createObjectURL(image));
+      } catch (error) {
+        console.error(error);
+      }
+
   };
 
   return (
@@ -126,8 +145,10 @@ function ProductUploadPage() {
       <br />
       <label>
         Photos:
-        <input type="file" multiple onChange={handlephotosChange} />
+        <input type="file" multiple onChange={(e) => setImage(e.target.files[0])} />
       </label>
+        {imageUrl && <img src={imageUrl} alt="Product Image" />}
+      <br />
       <br />
       <label>
         Condition:

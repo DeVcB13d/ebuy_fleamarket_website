@@ -12,13 +12,12 @@ const cors = require('cors');
 
 
 /* Logging the path and method of the request. */
-app.use(cors({origin:'https://ebuy-dev.onrender.com'}));
+app.use(cors({origin:'https://ebuy-fleamarket-website-bmaq.vercel.app'}));
 app.use(express.json())
 app.use((req,res,next) => {
     console.log(req.path,req.method)
     next()
 })
-
 
 /* Telling the app to use the routes defined in the userRoutes and loginRoutes files. */
 app.use('/api/signUp',userRoutes)

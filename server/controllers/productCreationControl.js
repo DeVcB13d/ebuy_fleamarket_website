@@ -56,4 +56,11 @@ const getProducts = async(req,res) => {
     res.status(200).json(products)
 }
 
+const getSingleProduct = async(req,res) => {
+    let id = req.params.id
+    const details = await productDataModel.findOne({_id: id})
+    res.status(200).json(details)
+}
+
+
 module.exports = {createProduct,getProducts}

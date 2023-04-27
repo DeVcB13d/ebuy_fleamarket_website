@@ -11,6 +11,8 @@ import Signup from "./components/Signup";
 import Shop from "./components/shop"
 import Shopnow from "./components/shop"
 import ProductUploadPage from "./components/Productupload";
+import UserProfile from "./components/UserProfile";
+
 
 
 
@@ -48,6 +50,13 @@ const App = () => {
     <Route exact path = "/Productupload">
       <ProductUploadPage/>
     </Route>
+
+    <Route exact path = "/UserProfile">
+      <UserProfile/>
+    </Route>
+    
+    
+
 
     
 

@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import './Productupload.css';
-import signinimage from '../Wavy_Ppl-05_Single-09.jpg';
-import axios from 'axios';
-
+import ProductUploadHeader from '../components/ProductUploadHeader';
 
 
 function ProductUploadPage() {
+  
+  const [itemID, setitemID] = useState('');
+  const [sellerID, setsellerID] = useState('');
   const [productName, setproductName] = useState('');
   const [brandName, setbrandName] = useState('');
   const [category, setcategory] = useState('');
@@ -17,8 +18,11 @@ function ProductUploadPage() {
   const [condition, setcondition] = useState('');
   const [sellingStatus, setsellingStatus] = useState('');
   const [yearsUsed, setyearsUsed] = useState('');
-  const [image, setImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState('');
+
+  const handlesellerID = (event) => {
+    setsellerID(event.target.value);
+  };
+
 
   const handleproductName = (event) => {
     setproductName(event.target.value);
@@ -103,9 +107,19 @@ function ProductUploadPage() {
       }
 
   };
-
+  
   return (
+    <div>
+  <ProductUploadHeader />
+  <p>Enjoy Selling 😌</p>
+  <p>This is where you can upload your products.</p>
+
     <form onSubmit={handleSubmit}>
+      <label>
+        Seller ID:
+        <input type="text" value={sellerID} onChange={handlesellerID} />
+      </label>
+      <br />
       <label>
         Product Name:
         <input type="text" value={productName} onChange={handleproductName} />
@@ -129,7 +143,7 @@ function ProductUploadPage() {
       <br />
       <label>
         Price:
-        <input type="number" value={price} onChange={handlepriceChange} />
+        <input type="text" value={price} onChange={handlepriceChange} />
       </label>
       <br />
       <label>
@@ -145,10 +159,8 @@ function ProductUploadPage() {
       <br />
       <label>
         Photos:
-        <input type="file" multiple onChange={(e) => setImage(e.target.files[0])} />
+        <input type="file" multiple onChange={handlephotosChange} />
       </label>
-        {imageUrl && <img src={imageUrl} alt="Product Image" />}
-      <br />
       <br />
       <label>
         Condition:
@@ -161,7 +173,7 @@ function ProductUploadPage() {
       <br />
       <label>
         Years Used : 
-        <input type="number" value={yearsUsed} onChange={handleyearsUsed} />
+        <input type="text" value={yearsUsed} onChange={handleyearsUsed} />
       </label>
       <br />
       <label>
@@ -178,15 +190,9 @@ function ProductUploadPage() {
       </label>
       <br />
       <button type="submit">Upload Product</button>
-      <div className="image-container" >
-						<img
-							src={signinimage}
-							className="img-fluid"
-							alt="Welcome to our eCommerce store!" />
-						
-					</div>
+      
     </form>
-    
+    </div>
     
   );
 }

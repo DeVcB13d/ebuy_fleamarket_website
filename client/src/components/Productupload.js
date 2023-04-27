@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './Productupload.css';
 import ProductUploadHeader from '../components/ProductUploadHeader';
+import axios from 'axios';
 
 
 function ProductUploadPage() {
@@ -18,7 +19,9 @@ function ProductUploadPage() {
   const [condition, setcondition] = useState('');
   const [sellingStatus, setsellingStatus] = useState('');
   const [yearsUsed, setyearsUsed] = useState('');
-
+  const [image, setImage] = useState(null);
+  const [imageUrl, setImageUrl] = useState('');
+  
   const handlesellerID = (event) => {
     setsellerID(event.target.value);
   };
@@ -107,7 +110,7 @@ function ProductUploadPage() {
       }
 
   };
-  
+
   return (
     <div>
   <ProductUploadHeader />

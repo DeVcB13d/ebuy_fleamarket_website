@@ -12,6 +12,7 @@ import Shop from "./components/shop"
 import Shopnow from "./components/shop"
 import ProductUploadPage from "./components/Productupload";
 import UserProfile from "./components/UserProfile";
+import ShoppingPage from "./components/shop/ShoppingPage";
 
 
 
@@ -55,6 +56,9 @@ const App = () => {
       <UserProfile/>
     </Route>
     
+    <Route exact path = "/ShoppingPage">
+      <ShoppingPage/>
+    </Route>
     
 
 

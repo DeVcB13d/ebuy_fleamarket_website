@@ -1,16 +1,14 @@
-import React from 'react'
-import { Helmet } from 'react-helmet'
-import { Link } from 'react-router-dom';
-import SectionHeading from '../components/section-heading'
-import CategoryCard from '../components/category-card'
-import "./searchbox.css"
-import './home.css'
-import '../style.css'
+import React from "react";
+import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
+import SectionHeading from "../components/section-heading";
+import CategoryCard from "../components/category-card";
+import "./searchbox.css";
+import "./home.css";
+import "../style.css";
 
 const Home = (props) => {
   return (
-    
-    
     <div className="home-container">
       <Helmet>
         <title>E-BUY🛒 Online Store</title>
@@ -19,23 +17,32 @@ const Home = (props) => {
       <div className="home-navbar">
         <header data-role="Header" className="home-header max-width-container">
           <div className="home-navbar1">
-          <div class="search-box">
-  <input type="text" placeholder=" "/>
-  <button type="reset"></button>
-</div>
+            <div class="search-box">
+              <input type="text" placeholder=" " />
+              <button type="reset"></button>
+            </div>
             <div className="home-middle">
               <div className="home-left">
-      
-
-      <a class="nav-link" href="/Contact">Contact Us</a>
-      </div>
-      <Link to="/" className="navbar-logo-title">E-BUY🛒</Link>
-      <div className="home-right">
-      <a class="nav-link" href="/about">About</a>
-      <a class="nav-link" href="/UserProfile">User Profile</a>
-      <a class="nav-link" href="/Productupload">To Sell</a>
-      <a class="nav-link" href="/ProductPage">Market</a>
-        
+                <a class="nav-link" href="/Contact">
+                  Contact Us
+                </a>
+              </div>
+              <Link to="/" className="navbar-logo-title">
+                E-BUY🛒
+              </Link>
+              <div className="home-right">
+                <a class="nav-link" href="/about">
+                  About
+                </a>
+                <a class="nav-link" href="/UserProfile">
+                  User Profile
+                </a>
+                <a class="nav-link" href="/Productupload">
+                  To Sell
+                </a>
+                <a class="nav-link" href="/ProductPage">
+                  Market
+                </a>
               </div>
             </div>
             <div className="home-icons">
@@ -120,7 +127,9 @@ const Home = (props) => {
                   <span className="home-text18">RS.1500</span>
                 </div>
                 <div className="home-btn-group">
-                  <button className="button">Explore the collection</button>
+                  <Link to="/ShoppingPage" className="home-text18">
+                    Explore the collection
+                  </Link>
                 </div>
               </div>
               <img
@@ -174,18 +183,26 @@ const Home = (props) => {
           <div className="home-container06 max-width-container">
             <div className="home-container07">
               <span className="home-text23">
-                
                 <span>
-                Introducing Ebuy, the newest online flea market that offers a unique shopping experience for bargain hunters and savvy shoppers alike. Our mission is to connect buyers with sellers, and provide a platform for small businesses to grow and thrive.
-
-At Ebuy, we pride ourselves on offering a wide range of products, from vintage to modern and everything in between. We're passionate about sustainability and upcycling, and we encourage our sellers to embrace eco-friendly practices.
-
-Our platform is user-friendly and easy to navigate, so you can find what you're looking for quickly and easily. Plus, we offer a secure and reliable payment system, so you can shop with confidence.
-
-Whether you're looking for unique gifts, one-of-a-kind vintage finds, or simply want to support small businesses, Ebuy has something for everyone. Join our community today and discover the joy of online flea market shopping.
+                  Introducing Ebuy, the newest online flea market that offers a
+                  unique shopping experience for bargain hunters and savvy
+                  shoppers alike. Our mission is to connect buyers with sellers,
+                  and provide a platform for small businesses to grow and
+                  thrive. At Ebuy, we pride ourselves on offering a wide range
+                  of products, from vintage to modern and everything in between.
+                  We're passionate about sustainability and upcycling, and we
+                  encourage our sellers to embrace eco-friendly practices. Our
+                  platform is user-friendly and easy to navigate, so you can
+                  find what you're looking for quickly and easily. Plus, we
+                  offer a secure and reliable payment system, so you can shop
+                  with confidence. Whether you're looking for unique gifts,
+                  one-of-a-kind vintage finds, or simply want to support small
+                  businesses, Ebuy has something for everyone. Join our
+                  community today and discover the joy of online flea market
+                  shopping.
                   <span
                     dangerouslySetInnerHTML={{
-                      __html: ' ',
+                      __html: " ",
                     }}
                   />
                 </span>
@@ -194,15 +211,13 @@ Whether you're looking for unique gifts, one-of-a-kind vintage finds, or simply 
                 alt="M3271427"
                 src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTk5JyBoZWlnaHQ9JzIwMCcgdmlld0JveD0nMCAwIDE5OSAyMDAnIGZpbGw9J25vbmUnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+CjxwYXRoIGQ9J00zNy4zMDI2IDcxLjI5MjVMOTkuMzgyNyAxODIuMzEzTDE2MS40NjMgNzEuMjkyNUwxNzUuNjIyIDIwMEgxOTguNzY1TDE3NS42MjIgMEw5OS4zODI3IDEzNy45NTlMMjMuMTQzOSAwTDAgMjAwSDIzLjE0MzlMMzcuMzAyNiA3MS4yOTI1WicgZmlsbD0nYmxhY2snIGZpbGwtb3BhY2l0eT0nMC4wNicvPgo8L3N2Zz4K"
                 className="home-svg"
-              /><a href="/About">
-              <button className="button">Read more</button></a>
+              />
+              <a href="/About">
+                <button className="button">Read more</button>
+              </a>
             </div>
           </div>
         </div>
-       
-          
-       
-        
       </div>
       <div className="home-footer">
         <div className="max-width-container">
@@ -233,10 +248,9 @@ Whether you're looking for unique gifts, one-of-a-kind vintage finds, or simply 
                 <span className="home-text47">Lookbook</span>
                 <span className="home-text48">Specials</span>
                 <span className="home-text49">About</span>
-                
               </div>
               <div className="home-container12">
-                <span className="home-text51" >Resources</span>
+                <span className="home-text51">Resources</span>
 
                 <span className="home-text52">Contact us</span>
                 <span className="home-text53">Order</span>
@@ -248,7 +262,7 @@ Whether you're looking for unique gifts, one-of-a-kind vintage finds, or simply 
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

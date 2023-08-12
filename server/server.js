@@ -13,6 +13,7 @@ const cors = require('cors');
 
 /* Logging the path and method of the request. */
 app.use(cors({origin:'https://ebuy-fleamarket-website-bmaq.vercel.app'}));
+app.use(cors({origin:'http://localhost:3000'}));
 app.use(express.json())
 app.use((req,res,next) => {
     console.log(req.path,req.method)
@@ -34,4 +35,5 @@ mongoose.connect(process.env.MONGO_URL)
     .catch((error) => {
         console.log(error)
     })
+
 

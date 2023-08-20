@@ -27,7 +27,7 @@ async function getUsers(req, res) {
 const getUser = async(req,res) => {
     // contains single user id
     const {id} = req.params
-    const user = await userDataModel.findById(id)
+    const user = await userDataModel.findOne({_id: id})
     if (!user){
         return res.status(404).json({error:'No such User'})
     }

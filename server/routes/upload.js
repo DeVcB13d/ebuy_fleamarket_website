@@ -1,18 +1,18 @@
-const express = require('express');
-const multer = require('multer');
-const upload = multer({ dest: 'uploads/' });
-const Product = require('../models/imageStorageModel');
-const app = express();
+/* The below code is creating a router for the user. */
 
-app.post('/api/upload', upload.single('image'), async (req, res) => {
-    try {
-        const { itemID } = req.body;
-        const image = req.file.buffer;
-        const product = new Product({ itemID, image });
-        await product.save();
-        res.sendStatus(200);
-    } catch (error) {
-        console.error(error);
-        res.sendStatus(500);
-    }
-});
+const express = require('express')
+
+const router = express.Router()
+const {
+    uploadImage,
+    getAssetInfo,
+    createImageTag
+} = require('../controllers/productImageUpload')
+
+
+router.post('/',uploadImage)
+router.get('/',getAssetInfo)
+router.get('/:id',createImageTag)
+
+module.exports = router
+

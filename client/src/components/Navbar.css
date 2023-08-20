@@ -1,0 +1,26 @@
+.navbar-nav .nav-item .nav-link.animated-hover {
+    position: relative;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .navbar-nav .nav-item .nav-link.animated-hover::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: #f8f9fa;
+    bottom: -2px;
+    left: 0;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .navbar-nav .nav-item .nav-link.animated-hover:hover {
+    transform: translateY(-3px);
+  }
+  
+  .navbar-nav .nav-item .nav-link.animated-hover:hover::before {
+    transform: scaleX(1);
+  }
+  

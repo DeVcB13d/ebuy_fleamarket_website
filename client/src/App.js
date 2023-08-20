@@ -9,16 +9,15 @@ import Contact from "./components/Contact";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import ProductUpload from "./components/ProductUpload";
-// import Shop from "./components/shop";
-// import Shopnow from "./components/shop";
-// import ProductUploadPage from "./components/Productupload";
-// import UserProfile from "./components/UserProfile";
-// import ShoppingPage from "./components/shop/ShoppingPage";
+import UserProfile from "./components/UserProfile";
+import SingleProduct from "./components/SingleProduct";
+import HomeScreen from "./components/HomeScreen";
 
 import "bootstrap/dist/css/bootstrap.css";
 const App = () => {
   return (
     <>
+
       <Navbar />
       <Route exact path="/">
         <Home />
@@ -40,9 +39,23 @@ const App = () => {
         <Signup />
       </Route>
 
+      <Route exact path="/UserProfile/:id">
+        <UserProfile/>
+      </Route>
+
       <Route exact path="/ProductUpload">
         <ProductUpload />
       </Route>
+
+      <Route path="/Product/:id">
+        <SingleProduct />
+      </Route>
+
+      <Route path="/Homepage">
+        <HomeScreen />
+      </Route>
+
+
     </>
   );
 };

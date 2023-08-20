@@ -26,7 +26,8 @@ const createProduct = async (req, res) => {
         tags,
         category,
         yearsUsed,
-        relevanceScore
+        relevanceScore,
+        images
     } = req.body
     try{       
         const user = await productDataModel.create({
@@ -41,11 +42,13 @@ const createProduct = async (req, res) => {
             tags: tags,
             category: category, 
             yearsUsed: yearsUsed, 
-            relevanceScore: relevanceScore
+            relevanceScore: relevanceScore,
+            images: images
         }) 
         res.status(200).json(user)
     } catch(error){
         res.status(400).json({error: error.message})
+        console.error(error)
     }
 }
 
@@ -57,10 +60,21 @@ const getProducts = async(req,res) => {
 }
 
 const getSingleProduct = async(req,res) => {
-    let id = req.params.id
-    const details = await productDataModel.findOne({_id: id})
-    res.status(200).json(details)
+    try{
+        console.log(req.params)
+        let itemID = req.params.id
+        
+        const details =  await productDataModel.findOne({itemID : itemID})
+        if (!details) {
+            res.status(400).json({userID: "None", message: "Product does not exist"})
+        }
+        console.log(details)
+        res.status(200).json(details)
+    } catch(error){ 
+        res.status(400).json({error: error.message})
+        console.error(error)
+    }
 }
 
 
-module.exports = {createProduct,getProducts}
+module.exports = {createProduct,getProducts,getSingleProduct}

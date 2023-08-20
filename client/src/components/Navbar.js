@@ -1,5 +1,6 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import "./Navbar.css"; // Import your custom CSS for the navbar
 
 const Navbar = () => {
   const location = useLocation();
@@ -11,12 +12,12 @@ const Navbar = () => {
 
   return (
     <>
-      <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a class="navbar-brand" href="/#">
+      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
+        <NavLink className="navbar-brand" to="/">
           Ebuy🛍️🛒
-        </a>
+        </NavLink>
         <button
-          class="navbar-toggler"
+          className="navbar-toggler"
           type="button"
           data-toggle="collapse"
           data-target="#navbarSupportedContent"
@@ -24,41 +25,57 @@ const Navbar = () => {
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon"></span>
+          <span className="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="/">
-                Home <span class="sr-only">(current)</span>
-              </a>
+        <div className="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul className="navbar-nav ml-auto">
+            <li className="nav-item">
+              <NavLink
+                exact
+                activeClassName="active"
+                className="nav-link animated-hover"
+                to="/"
+              >
+                Home
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/about">
+            <li className="nav-item">
+              <NavLink activeClassName="active" className="nav-link animated-hover" to="/about">
                 About
-              </a>
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/contact">
+            
+            <li className="nav-item">
+              <NavLink activeClassName="active" className="nav-link animated-hover" to="/contact">
                 Contact
-              </a>
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/Login">
+            <li className="nav-item">
+              <NavLink activeClassName="active" className="nav-link animated-hover" to="/Login">
                 Login
-              </a>
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/signup">
+            <li className="nav-item">
+              <NavLink activeClassName="active" className="nav-link animated-hover" to="/signup">
                 Register
-              </a>
+              </NavLink>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/shop">
+            <li className="nav-item">
+              <NavLink activeClassName="active" className="nav-link animated-hover" to="/shop">
                 Shop
-              </a>
+              </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink activeClassName="active" className="nav-link animated-hover" to="/UserProfile">
+                Profile
+              </NavLink>
+            </li>
+            <li className="nav-item">
+            <NavLink activeClassName="active" className="nav-link animated-hover" to="/ProductUpload">
+              Upload
+            </NavLink>
+          </li>
           </ul>
         </div>
       </nav>
@@ -66,5 +83,5 @@ const Navbar = () => {
   );
 };
 
-
 export default Navbar;
+

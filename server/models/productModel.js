@@ -49,6 +49,9 @@ const productDataModelSchema = new Schema({
     },
     relevanceScore: {
         type: Number
+    },
+    images: {
+        type: [String]
     }
 
 },{timestamps: true})

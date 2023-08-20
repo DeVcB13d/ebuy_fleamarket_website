@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
   MDBBtn,
   MDBContainer,
@@ -11,31 +11,33 @@ import {
   MDBCheckbox,
   MDBTextArea,
 } from "mdb-react-ui-kit";
-import axios from 'axios';
+import Carousel from "./Carousel";
+import { useHistory } from "react-router-dom";
 
+import {useEffect, useRef } from 'react';
 
 
 function ProductUploadPage() {
+
   
-  const [itemID, setitemID] = useState('');
-  const [sellerID, setsellerID] = useState('');
-  const [productName, setproductName] = useState('');
-  const [brandName, setbrandName] = useState('');
-  const [category, setcategory] = useState('');
-  const [price, setprice] = useState('');
-  const [specs, setspecs] = useState('');
-  const [contactNo, setcontactNo] = useState('');
-  const [tags, settags] = useState('');
-  const [photos, setphotos] = useState([]);
-  const [condition, setcondition] = useState('');
-  const [sellingStatus, setsellingStatus] = useState('');
-  const [yearsUsed, setyearsUsed] = useState('');
-  const [image, setImage] = useState(null);
-  const [imageUrl, setImageUrl] = useState('');
   
-  const handlesellerID = (event) => {
-    setsellerID(event.target.value);
-  };
+  const [itemID, setitemID] = useState("");
+  const [sellerID, setsellerID] = useState("");
+  const [productName, setproductName] = useState("");
+  const [brandName, setbrandName] = useState("");
+  const [category, setcategory] = useState("");
+  const [price, setprice] = useState("");
+  const [specs, setspecs] = useState("");
+  const [contactNo, setcontactNo] = useState("");
+  const [tags, settags] = useState("");
+  const [sellingStatus, setsellingStatus] = useState("");
+  const [yearsUsed, setyearsUsed] = useState("");
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [selectedImages, setSelectedImages] = useState([]); // array of files
+  const [imageUrl, setImageUrl] = useState(null);
+  const [images, setImages] = useState([]);
+  const history = useHistory();
 
 
   const handleproductName = (event) => {
@@ -66,15 +68,6 @@ function ProductUploadPage() {
     settags(event.target.value);
   };
 
-  const handlephotosChange = (event) => {
-    const newPhotos = Array.from(event.target.files);
-    setphotos(newPhotos);
-  };
-
-  const handleconditionChange = (event) => {
-    setcondition(event.target.value);
-  };
-
   const handlesellingStatusChange = (event) => {
     setsellingStatus(event.target.value);
   };
@@ -83,257 +76,193 @@ function ProductUploadPage() {
     setcontactNo(event.target.value);
   };
 
-  const handleSubmit = async(e) => {
-    // prevent refresh
-		e.preventDefault();
-		const itemID = Math.floor(Math.random() * 90000) + 10000;
-    const sellerID = "AB100"
-    const relevanceScore = 0
-		const productData = {itemID,sellerID,productName,brandName,price,sellingStatus,specs,contactNo,tags,category,yearsUsed,relevanceScore}
-		const formData = new FormData();
-    formData.append('itemID',itemID)
-    formData.append('image',image)
-    const response = await fetch('/api/product', {
-				method: 'POST',
-				body: JSON.stringify(productData),
-				headers: {
-					'Content-Type': 'application/json'
-				}
-			})
-			const json = await response.json()
-			if (!response.ok) {
-				alert('The upload was not successful')
-			}
-			if (response.ok) {
-				alert('The product addition was successful')
-				console.log('user data added')
-			}
-			console.log(itemID);
-      try {
-        await axios.post('/api/upload', formData, {
-          headers: {
-            'Content-Type': 'multipart/form-data'
-          }
-        });
-        setImageUrl(URL.createObjectURL(image));
-      } catch (error) {
-        console.error(error);
-      }
+  const handleFileChange = (event) => {
+    console.log("File Change", event.target.files[0]);
+    var img_url = URL.createObjectURL(event.target.files[0]);
+    console.log("Image URL: ", img_url);
 
   };
 
+  const handleSubmit = async (e) => {
+    // prevent refresh
+    e.preventDefault();
+
+  
+    const itemID = Math.floor(Math.random() * 90000) + 10000;
+    const sellerID = "AB100";
+    const relevanceScore = 0;
+    const sellingStatus = "Available";
+    const productData = {
+      itemID,
+      sellerID,
+      productName,
+      brandName,
+      price,
+      sellingStatus,
+      specs,
+      contactNo,
+      tags,
+      category,
+      yearsUsed,
+      relevanceScore,
+      images,
+    };
+    const formData = new FormData();
+    formData.append("itemID", itemID);
+    formData.append("images", images);
+    const response = await fetch("/api/product", {
+      method: "POST",
+      body: JSON.stringify(productData),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const json = await response.json();
+    if (!response.ok) {
+      alert("The upload was not successful");
+    }
+    if (response.ok) {
+      alert("The product addition was successful");
+      console.log("product data added \n Product ID: ", itemID);
+      let url = "/Product/" + itemID;
+      history.push(url);
+      window.location.reload();
+    }
+    console.log(itemID);
+  };
+
+  const cloudinaryRef = useRef();
+  const widgetRef = useRef();
+  useEffect(() => {
+      cloudinaryRef.current = window.cloudinary
+      widgetRef.current = cloudinaryRef.current.createUploadWidget({
+          cloudName: "dvh8nacab",
+          uploadPreset: "wsizna94"
+      },function(error, result) {
+          console.log("results",result);
+          if (!error && result && result.event === "success") {
+              console.log("Done! Here is the image info: ", result.info.url);
+              //add image url to images array
+              images.push(result.info.url);
+              console.log("images",images);
+          }
+      }
+      );
+  }, [])
+
+
   return (
-    <MDBContainer fluid className="h-custom">
-      <MDBRow className="d-flex justify-content-center align-items-center h-100">
-        <MDBCol col="12" className="m-5">
-          <MDBCard
-            className="card-registration card-registration-2"
-            style={{ borderRadius: "15px" }}
-          >
-            <MDBCardBody className="p-0">
+      <MDBRow className="d-flex justify-content-center align-items-center w-100">
+        <MDBCardBody className="w-200">
+          <MDBRow>
+            <MDBCol
+              md="10"
+              className="p-5 bg-white justify-content-center align-items-center"
+            >
+              <h3 className="fw-normal mb-5" style={{ color: "#4835d4" }}>
+                General Infomation
+              </h3>
+
               <MDBRow>
-                <MDBCol md="6" className="p-5 bg-white">
-                  <h3 className="fw-normal mb-5" style={{ color: "#4835d4" }}>
-                    General Infomation
-                  </h3>
-
-                  <MDBRow>
-                    <MDBCol md="6">
-                      <MDBInput
-                        wrapperClass="mb-4"
-                        label="Product Name"
-                        size="lg"
-                        id="form1"
-                        type="text"
-                        value={productName}
-                        onChange={handleproductName}
-                        placeholder="Enter Product Name"
-                      />
-                    </MDBCol>
-
-                    <MDBCol md="6">
-                      <MDBInput
-                        wrapperClass="mb-4"
-                        label="Brand Name"
-                        size="lg"
-                        id="form2"
-                        type="text"
-                        value={brandName}
-                        onChange={handlebrandName}
-                        placeholder="Enter Brand Name"
-                      />
-                    </MDBCol>
-                  </MDBRow>
-
+                <MDBCol md="6">
                   <MDBInput
                     wrapperClass="mb-4"
-                    label="Price (Rs.)"
+                    label="Product Name"
                     size="lg"
-                    id="form3"
-                    type="number"
-                    value={price}
-                    onChange={handlepriceChange}
-                    placeholder="Enter Price"
-
-                  />
-
-                  <MDBRow className='align-items-center pt-4 pb-3'>
-
-
-                <MDBCol md='9' className='pe-5'>
-                  <MDBTextArea label='Specs' 
-                  id='textAreaExample' 
-                  rows={3} 
-                  value={specs}
-                  onChange={handlespecsChange}
-                  placeholder="Enter Product Specifications"
+                    id="form1"
+                    type="text"
+                    value={productName}
+                    onChange={handleproductName}
+                    placeholder="Enter Product Name"
                   />
                 </MDBCol>
 
-              </MDBRow>
-                  <MDBRow>
-                    <MDBCol md="6">
-                      <MDBInput
-                        wrapperClass="mb-4"
-                        label="Contact No."
-                        size="lg"
-                        id="form4"
-                        type="text"
-                        value={contactNo}
-                        onChange={handlecontactNoChange}
-                        placeholder="Enter Contact No."
-                      />
-                    </MDBCol>
-                    <MDBCol md='9' className='pe-5'>
-                    <MDBTextArea label='Tags' 
-                    id='textAreaExample' 
-                    rows={3} 
-                    value={tags}
-                    onChange={handletagsChange}
-                    placeholder="Enter tags seperated by spaces"
-                    />
-                    <MDBInput
-                    wrapperClass="mb-4"
-                    label="Years Used"
-                    size="lg"
-                    id="form3"
-                    type="number"
-                    value={yearsUsed}
-                    onChange={handleyearsUsed}
-                    placeholder="Enter Years Used"
-    
-                  />
-                  </MDBCol>
-
-                  </MDBRow>
-                  
-                </MDBCol>
-
-                <MDBCol md="6" className="bg-indigo p-5">
-                  <h3
-                    className="fw-normal mb-5 text-white"
-                    style={{ color: "#4835d4" }}
-                  >
-                    Contact Details
-                  </h3>
+                <MDBCol md="6">
                   <MDBInput
                     wrapperClass="mb-4"
-                    labelClass="text-white"
-                    label="Street + Nr"
+                    label="Brand Name"
                     size="lg"
-                    id="form5"
+                    id="form2"
                     type="text"
+                    value={brandName}
+                    onChange={handlebrandName}
+                    placeholder="Enter Brand Name"
                   />
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    labelClass="text-white"
-                    label="Additional Information"
-                    size="lg"
-                    id="form6"
-                    type="text"
-                  />
-
-                  <MDBRow>
-                    <MDBCol md="5">
-                      <MDBInput
-                        wrapperClass="mb-4"
-                        labelClass="text-white"
-                        label="Zip Code"
-                        size="lg"
-                        id="form6"
-                        type="text"
-                      />
-                    </MDBCol>
-
-                    <MDBCol md="7">
-                      <MDBInput
-                        wrapperClass="mb-4"
-                        labelClass="text-white"
-                        label="Place"
-                        size="lg"
-                        id="form7"
-                        type="text"
-                      />
-                    </MDBCol>
-                  </MDBRow>
-
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    labelClass="text-white"
-                    label="Country"
-                    size="lg"
-                    id="form8"
-                    type="text"
-                  />
-
-                  <MDBRow>
-                    <MDBCol md="5">
-                      <MDBInput
-                        wrapperClass="mb-4"
-                        labelClass="text-white"
-                        label="Code +"
-                        size="lg"
-                        id="form9"
-                        type="text"
-                      />
-                    </MDBCol>
-
-                    <MDBCol md="7">
-                      <MDBInput
-                        wrapperClass="mb-4"
-                        labelClass="text-white"
-                        label="Phone Number"
-                        size="lg"
-                        id="form10"
-                        type="text"
-                      />
-                    </MDBCol>
-                  </MDBRow>
-
-                  <MDBInput
-                    wrapperClass="mb-4"
-                    labelClass="text-white"
-                    label="Your Email"
-                    size="lg"
-                    id="form8"
-                    type="email"
-                  />
-                  <MDBCheckbox
-                    name="flexCheck"
-                    id="flexCheckDefault"
-                    labelClass="text-white mb-4"
-                    label="I do accept the Terms and Conditions of your site."
-                  />
-                  <MDBBtn color="light" size="lg">
-                    Register
-                  </MDBBtn>
                 </MDBCol>
               </MDBRow>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
+
+              <MDBInput
+                wrapperClass="mb-4"
+                label="Price (Rs.)"
+                size="lg"
+                id="form3"
+                type="number"
+                value={price}
+                onChange={handlepriceChange}
+                placeholder="Enter Price"
+              />
+
+              <MDBTextArea
+                label="Specs"
+                id="textAreaExample"
+                rows={3}
+                value={specs}
+                onChange={handlespecsChange}
+                placeholder="Enter Product Specifications"
+              />
+
+              <MDBInput
+                wrapperClass="mb-4"
+                label="Contact No."
+                size="lg"
+                id="form4"
+                type="text"
+                value={contactNo}
+                onChange={handlecontactNoChange}
+                placeholder="Enter Contact No."
+              />
+
+              <MDBTextArea
+                label="Tags"
+                id="textAreaExample"
+                rows={3}
+                value={tags}
+                onChange={handletagsChange}
+                placeholder="Enter tags seperated by spaces"
+              />
+
+              <MDBInput
+                wrapperClass="mb-4"
+                label="Years Used"
+                size="lg"
+                id="form3"
+                type="number"
+                value={yearsUsed}
+                onChange={handleyearsUsed}
+                placeholder="Enter Years Used"
+              />
+
+              <MDBContainer className="container-fluid">
+                <Carousel images={images} />
+              </MDBContainer>
+
+              <button class="btn btn-primary btn-lg btn-block" onClick={() => widgetRef.current.open()}>
+                Upload Image
+            </button>
+            
+            <div>
+            </div>
+              <button
+                type="submit"
+                class="btn btn-primary btn-lg btn-block"
+                onClick={handleSubmit}
+              >
+                Submit
+              </button>
+            </MDBCol>
+          </MDBRow>
+        </MDBCardBody>
       </MDBRow>
-    </MDBContainer>
   );
 }
 

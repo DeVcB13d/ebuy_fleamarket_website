@@ -11,7 +11,7 @@ function HomeScreen() {
 
   useEffect(() => {
     // Fetch user profile details from the backend API
-    fetch('/api/product', {
+    fetch('https://ebuy-dev-backend.onrender.com/api/product', {
       method: 'GET',
       headers: {},
     })

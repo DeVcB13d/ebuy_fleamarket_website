@@ -15,7 +15,7 @@ import {useParams} from "react-router-dom";
 export default function UserProfile() {
   const id = useParams();
   console.log(id)
-  const API = "/api/signUp/" + id.id;
+  const API = "https://ebuy-dev-backend.onrender.com/api/signUp/" + id.id;
   const [profilePicture, setProfilePicture] = useState(
     "https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-chat/ava1-bg.webp"
   );

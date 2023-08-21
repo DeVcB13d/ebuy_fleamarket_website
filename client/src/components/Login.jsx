@@ -22,7 +22,7 @@ const Login = (props) => {
 
     const signUpData = { email, password };
     console.log(signUpData);
-    const response = await fetch("/api/login", {
+    const response = await fetch("https://ebuy-dev-backend.onrender.com/api/login", {
       method: "POST",
       body: JSON.stringify(signUpData),
       headers: {

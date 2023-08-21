@@ -2,6 +2,7 @@ import { useEffect, useReducer, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Product from "./Product";
+import "./product.css";
 
 
 function HomeScreen() {
@@ -25,6 +26,7 @@ function HomeScreen() {
     <div>
       <h3 className="fw-normal mb-5" style={{ color: "#4835d4" }}>
         Recommended for you
+        <div className="AdRibbon">Special Offer: Get 20% off on selected items!</div>
       </h3>
       <div className="products">
           <Row>

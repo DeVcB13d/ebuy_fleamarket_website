@@ -1,0 +1,116 @@
+/* product.css */
+
+/* Styling for the card container */
+.Card {
+    width: 100%;
+    max-width: 300px; /* Adjust the maximum width as needed */
+    margin: 20px;
+    border: 1px solid #e1e1e1;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    transition: transform 0.3s ease;
+  }
+  
+  .Card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Styling for the product image */
+  .card-img-top {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+  
+  /* Styling for card body */
+  .Card.Body {
+    padding: 20px;
+  }
+  
+  .Card.Title {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+  
+  .Card.Text {
+    color: #666;
+    margin-bottom: 10px;
+  }
+  
+  .Card.Text:last-child {
+    font-weight: bold;
+  }
+  
+  /* Styling for the view button */
+  .Button {
+    width: 100%;
+  }
+  
+  /* Styling for sale badge */
+  .SaleBadge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #f44336;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 0.8rem;
+  }
+  
+  /* Styling for product details overlay */
+  .DetailsOverlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    opacity: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+  }
+  
+  .Card:hover .DetailsOverlay {
+    opacity: 1;
+  }
+  
+  .DetailsOverlay p {
+    color: #fff;
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .DetailsOverlay .Button {
+    background-color: #fff;
+    color: #333;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .DetailsOverlay .Button:hover {
+    background-color: #f0f0f0;
+  }
+  
+  /* Responsive layout adjustments */
+  @media (max-width: 768px) {
+    .Card {
+      max-width: 100%;
+    }
+  }
+  .AdRibbon {
+    background-color: #ff9800;
+    color: #fff;
+    font-size: 1rem;
+    padding: 10px;
+    text-align: center;
+  }

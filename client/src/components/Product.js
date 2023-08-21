@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 function Product(props) {
   const { product } = props;
   const itemID = product.itemID;
-  const itemURL = "https://ebuy-dev-backend.onrender.com/product/" + itemID;
+  const itemURL = "/product/" + itemID;
 
   const history = useHistory();
 

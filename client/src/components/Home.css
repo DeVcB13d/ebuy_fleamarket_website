@@ -1,0 +1,92 @@
+/* Home.css */
+
+/* Styling for the entire page */
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.row {
+  margin: 0;
+}
+
+/* Styling for the home content section */
+.home-content {
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  padding: 20px;
+  position: relative;
+  z-index: 1; /* Ensure the content is above the background image */
+}
+
+/* Styling for the blockquote */
+.blockquote {
+  margin-top: 20px;
+}
+
+/* Styling for the "Start Exploring" button */
+.btn-primary {
+  margin-top: 30px;
+}
+
+/* Styling for the home image section */
+.home-image {
+  position: relative;
+  height: 100vh; /* Set the height to fill the viewport */
+  background-size: cover;
+  background-position: right center; /* Set the background position to right */
+}
+
+/* Styling for the market image */
+.market-image {
+  position: absolute;
+  top: 1.5cm;
+  left: 0;
+  width: 10px; /* Adjust the width to your preference */
+  height: 10px;
+  background-repeat: no-repeat;
+
+   /* Send the market image to the back */
+}
+
+/* Styling for the character GIF */
+
+
+
+
+
+
+/* Add this CSS in your Home.css file */
+.product-ads {
+  margin-top: 50px;
+}
+
+.product-ads-container {
+  display: flex;
+  overflow-x: auto;
+  gap: 20px;
+  align-items: center;
+  justify-content: flex-start;
+  background-color: #f895ba18;
+}
+
+.product-ad {
+  flex: 0 0 auto;
+  width: 250px;
+  border: 1px solid #ffffff00;
+  padding: 10px;
+  text-align: center;
+}
+
+.product-ad img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.product-name {
+  font-weight: bold;
+}
+
+.product-price {
+  color: #e91e63;
+}

@@ -1,31 +1,35 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
-import Rating from './screens/Rating';
-import { useContext } from 'react';
+
+import { useHistory } from "react-router-dom";
 
 function Product(props) {
   const { product } = props;
+  const itemID = product.itemID;
+  const itemURL = "https://ebuy-dev-backend.onrender.com/product/" + itemID;
 
+  const history = useHistory();
 
   return (
     <Card>
-      <Link to={`/product/${product.slug}`}>
-        <img src={product.image} className="card-img-top" alt={product.name} />
+      <Link to={`/product/${product.itemID}`}>
+        <img src={product.images[0]} className="card-img-top" alt={product.name} />
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.slug}`}>
-          <Card.Title>{product.name}</Card.Title>
-        </Link>
-        <Rating rating={product.rating} numReviews={product.numReviews} />
-        <Card.Text>${product.price}</Card.Text>
-        {product.countInStock === 0 ? (
-          <Button variant="light" disabled>
-            Out of stock
+        <Card.Title>{product.productName}</Card.Title>
+        <Card.Text>{product.brandName}</Card.Text>
+        <Card.Text>₹{product.price}</Card.Text>
+          <Button 
+            variant="primary"
+            onClick={() => {
+              history.push(itemURL) 
+              window.location.reload()
+              }
+            }
+          >
+            View
           </Button>
-        ) : (
-          <Button >Add to cart</Button>
-        )}
       </Card.Body>
     </Card>
   );

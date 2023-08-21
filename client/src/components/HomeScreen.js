@@ -2,7 +2,6 @@ import { useEffect, useReducer, useState } from "react";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Product from "./Product";
-import { Helmet } from "react-helmet-async";
 
 
 function HomeScreen() {
@@ -24,14 +23,13 @@ function HomeScreen() {
 
   return (
     <div>
-      <Helmet>
-        <title>Ebuy</title>
-      </Helmet>
-      <h1>Recommended Products</h1>
+      <h3 className="fw-normal mb-5" style={{ color: "#4835d4" }}>
+        Recommended for you
+      </h3>
       <div className="products">
           <Row>
             {products.map((product) => (
-              <Col key={product.slug} sm={6} md={4} lg={3} className="mb-3">
+              <Col key={product.itemID} sm={6} md={4} lg={3} className="mb-3">
                 <Product product={product}></Product>
               </Col>
             ))}

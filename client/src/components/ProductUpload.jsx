@@ -160,7 +160,7 @@ function ProductUploadPage() {
               className="p-5 bg-white justify-content-center align-items-center"
             >
               <h3 className="fw-normal mb-5" style={{ color: "#4835d4" }}>
-                General Infomation
+                Fill in the details of the product you want to sell
               </h3>
 
               <MDBRow>

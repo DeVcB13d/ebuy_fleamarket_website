@@ -7,7 +7,7 @@ import { TbTruckDelivery, TbReplace } from "react-icons/tb";
 
 const SingleProduct = () => {
   const { id } = useParams();
-  const API = "https://ebuy-dev-backend.onrender.com/api/product/" + id;
+  const API = "/api/product/" + id;
 
   const [itemID, setitemID] = useState("");
   const [sellerID, setsellerID] = useState("");

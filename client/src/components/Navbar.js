@@ -41,17 +41,6 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink activeClassName="active" className="nav-link animated-hover" to="/about">
-                About
-              </NavLink>
-            </li>
-            
-            <li className="nav-item">
-              <NavLink activeClassName="active" className="nav-link animated-hover" to="/contact">
-                Contact
-              </NavLink>
-            </li>
-            <li className="nav-item">
               <NavLink activeClassName="active" className="nav-link animated-hover" to="/Login">
                 Login
               </NavLink>
@@ -62,7 +51,7 @@ const Navbar = () => {
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink activeClassName="active" className="nav-link animated-hover" to="/shop">
+              <NavLink activeClassName="active" className="nav-link animated-hover" to="/homepage">
                 Shop
               </NavLink>
             </li>
@@ -76,6 +65,11 @@ const Navbar = () => {
               Upload
             </NavLink>
           </li>
+          <li className="nav-item">
+          <NavLink activeClassName="active" className="nav-link animated-hover" to="/contact">
+            Contact
+          </NavLink>
+        </li>
           </ul>
         </div>
       </nav>

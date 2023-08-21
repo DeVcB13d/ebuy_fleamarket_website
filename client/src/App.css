@@ -40,7 +40,7 @@ body {
   background: -webkit-linear-gradient(to right, rgb(232, 239, 251), rgba(194, 233, 251, 1));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  background: linear-gradient(to right, rgb(217, 227, 244), rgb(216, 232, 240))
+  background: linear-gradient(to right, rgb(217, 227, 244), rgb(255, 255, 255))
 }
 
 .bg-indigo {

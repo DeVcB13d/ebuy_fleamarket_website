@@ -8,7 +8,7 @@ import './product.css';
 function Product(props) {
   const { product } = props;
   const itemID = product.itemID;
-  const itemURL = '/product/${itemID}';
+  const itemURL = '/product/' + itemID;
   const history = useHistory();
 
   return (

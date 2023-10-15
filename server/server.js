@@ -16,7 +16,7 @@ const cloudinary = require('./cloudinary/cloudinary');
 
 
 /* Logging the path and method of the request. */
-app.use(cors({origin:'https://ebuy-fleamarket-website-bmaq.vercel.app'}));
+app.use(cors({origin:'https://main.d8e8dr96651j1.amplifyapp.com/'}));
 app.use(express.json({limit: '50mb'}));
 app.use(express.urlencoded({extended: true, limit: '50mb'}));
 app.use((req,res,next) => {
